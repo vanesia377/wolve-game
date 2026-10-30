@@ -5,13 +5,6 @@
 
 > Đây là tài liệu nghiên cứu được tổng hợp từ danh mục Wiki và **trang mô tả riêng của các role**, đối chiếu thông báo chính thức của Wolvesville. Nó **không thay thế** hướng dẫn trong game và không được dùng như văn bản phát hành chính thức của nhà phát triển.
 
-## 1. Tiêu chí chọn lọc và mức độ xác minh
-
-- **Nhận:** vai có trang mô tả Wolvesville riêng trên Wiki cộng đồng đáng tin, hoặc được nhà phát triển xác nhận đã xuất hiện trong game; kể cả chỉ có trong Custom/Moonlight hoặc sự kiện có thông báo rõ.
-- **Không nhận:** role fanmade/suy đoán, khái niệm ô random, role chỉ thuộc ứng dụng Wolvesville Classic, thử nghiệm chưa phát hành, role bị xóa/không khả dụng khi chưa có xác nhận mới.
-- **Ưu tiên nguồn:** thông báo nhà phát triển (2026) > mô tả trang role Wiki > danh mục Wiki. Wiki là cộng đồng biên tập, không phải văn bản nhà phát triển; trường hợp mâu thuẫn, ưu tiên nguồn chính thức.
-- **Kỹ năng:** tóm tắt bằng tiếng Việt, không sao chép nguyên văn. Chỉ ghi các cơ chế chính; không gán thông số phần trăm/lượt tối đa khi không đủ nguồn.
-
 ## 2. Thống kê vai trò đã lọc
 
 | Nhóm | Số vai chính thức trong dữ liệu |
@@ -25,8 +18,6 @@
 | **Tổng** | **130** |
 
 Từ **150 mục** trên danh mục Wiki cũ: bỏ **13 vai chỉ có trong Classic**, **3 mục chưa phát hành/đã loại không thuộc danh sách chính thức khả dụng**, **7 ô random**; bổ sung **2 role sự kiện 2026 đã được xác nhận**.
-
-**Chú thích về phân loại:** “Sự kiện” là trạng thái mở khóa/xuất hiện, còn “nâng cao” là nguồn gốc cây thẻ role; vì vậy một vai có thể vừa là role nâng cao vừa xuất hiện trong sự kiện hoặc chế độ đặc biệt.
 
 ## 3. Danh sách và kỹ năng theo phe
 
@@ -174,7 +165,7 @@ Từ **150 mục** trên danh mục Wiki cũ: bỏ **13 vai chỉ có trong Clas
 |---|---|
 | **Anarchist** | Đạt thắng lợi riêng nếu làng liên tục không treo ai theo điều kiện đặc biệt của role. |
 | **Fool** | Tìm cách khiến chính mình bị làng bỏ phiếu treo cổ để giành chiến thắng. |
-| **Headhunter** | Có người chơi mục tiêu, phải khi���n người đó bị treo cổ qua biểu quyết để thắng. |
+| **Headhunter** | Có người chơi mục tiêu, phải khiến người đó bị treo cổ qua biểu quyết để thắng. |
 
 ### Không phe cố định (Teamless) — 2 vai
 
@@ -189,46 +180,3 @@ Từ **150 mục** trên danh mục Wiki cũ: bỏ **13 vai chỉ có trong Clas
 |---|---|
 | **Dracula** | Role Halloween mới đã được nhà phát triển xác nhận ngày 13/10/2026. Chưa truy xuất được mô tả kỹ năng đáng tin cậy; không suy diễn thêm. |
 | **Exorcist** | Role Halloween mới đã được nhà phát triển xác nhận ngày 13/10/2026. Chưa truy xuất được mô tả kỹ năng đáng tin cậy; không suy diễn thêm. |
-
-## 4. Vai trò có ngoại lệ về thời gian phát hành
-
-- **Scarecrow:** được thông báo ngày 10/08/2026 là role gia nhập phe làng **vĩnh viễn**. Chưa lấy được trang mô tả kỹ năng đủ tin cậy; không tự đặt sức mạnh.
-- **Dorothy, Cowardly Lion, Evil Wizard (`Wizard`):** được công bố chơi trong sự kiện **Emerald Village, 10–31/08/2026**. Đã xuất hiện **chính thức**, nên giữ dù có thể là role theo mùa hoặc sự kiện có giới hạn thời gian.
-- **Dracula và Exorcist:** được nhà phát triển công bố trong sự kiện Wolvesween **12/10–01/11/2026**. Role mở được qua thẻ sự kiện nâng lên Epic trở lên có thể giữ trong dữ liệu vì đã có xác nhận chính thức.
-- **Firework Wolf:** đã ra mắt chính thức trong cập nhật Dark Fantasy 02/07/2026, không xếp là thử nghiệm.
-- **President:** role có tồn tại trong Wolvesville **Custom Games**, với điều kiện thua đặc biệt khi Tổng thống chết. Không phải role thường gặp trong Quick Game.
-- **Gentlewolf, Journalist, Rainmaker, Spy:** từng được cho sử dụng trong **Custom Games với Moonlight Membership** (và một số thử nghiệm/tournament). Các trang riêng có thể còn có mô tả nhưng không nên coi là role cơ bản/quick play chính thức.
-- **Assassin, Time Traveler, Wolf Time Traveler:** chỉ dành cho những chế độ đặc biệt tương ứng; đưa vào dữ liệu để bảo đảm tiêu chí “bất kể giới hạn thời gian/ưu tiên chế độ”.
-- **Pumpkin King và Santa Claus:** hai role mùa có tương tác tặng quà, cần phân biệt với role event mở khóa bằng Event Role Cards.
-
-## 5. Những mục đã loại và lý do
-
-| Nhóm loại | Tên | Lý do |
-|---|---|---|
-| Chỉ có trong **Wolvesville Classic** | Doppelganger, Drunk, Handsome Prince, Idiot, Leprous Human, Little Girl, Lone Wolf, Mad Scientist, Naughty Boy, Sect Hunter, Sibling, Sister, Wise Man | Vai chỉ tồn tại trong phiên bản Classic không dùng trong Quick/Game chính.
-| **Chưa phát hành / đã rút và hiện không dùng trong các chế độ kể cả Moonlight** | Locksmith, Prayer, Watchdog | Prayer chưa phát hành chính thức (bị hoãn ngày 01/09/2026), các vai còn lại không có phát hành xác nhận rõ.
-| **Không phải role riêng** | Custom Random Role, Random, Random Killer, Random Regular Villager, Random Strong Villager, Random Voting, Random Werewolf | Chỉ là ô gán ngẫu nhiên trong hệ thống, không phải role độc lập.
-| **Fanmade / ý tưởng người hâm mộ** | Không đưa tên vào bảng vai | Không trộn nội dung giả lập hoặc thiết kế cộng đồng chưa được nhà phát triển xác nhận.
-
-## 6. Link nguồn và cách cập nhật sau này
-
-1. [Trang Wolvesville chính thức](https://www.wolvesville.com/en/) — xác nhận trò chơi và danh mục giới thiệu.
-2. [Steam — thông báo Wolvesville](https://steamcommunity.com/app/2502760/allnews/) — kiểm chứng phát hành mới 2026 (Wolvesween, Emerald Village).
-3. [Blog phát triển Wolvesville](https://blog.wolvesville.com/) — ghi chú bản vá, trì hoãn role, điều chỉnh kỹ năng.
-4. [Wolvesville Wiki — Category:Roles](https://wolvesville.fandom.com/wiki/Category:Roles) — danh mục gốc 150 mục, **không thể dùng trực tiếp làm danh sách vai chính thức**.
-5. [Wolvesville Wiki — Category:Base](https://wolvesville.fandom.com/wiki/Category:Base) và [Category:Advanced](https://wolvesville.fandom.com/wiki/Category:Advanced) — cây role cơ bản/nâng cao.
-6. [Wolvesville Wiki — Event Role Card](https://wolvesville.fandom.com/wiki/Event_Role_Card) và [Category:Event Roles](https://wolvesville.fandom.com/wiki/Category:Event_Roles) — danh sách role sự kiện.
-7. [Wolvesville Wiki — Category:Classic](https://wolvesville.fandom.com/wiki/Category:Classic) — cơ sở tách riêng vai Classic.
-8. [Blog 01/09/2026 — Gyaru Update, Prayer bị hoãn](https://blog.wolvesville.com/2026/09/01/update-gyaru/) — không xem role chưa ship là đã phát hành.
-9. [Wolvesville Wiki — Custom Games / Moonlight Membership](https://wolvesville.fandom.com/wiki/Custom_Games) — kiểm tra các role chính thức từng có trong Custom/Moonlight dù đã dừng hoặc giới hạn.
-
-## 7. Những giới hạn không nên suy diễn
-
-- Danh sách này được **sàng lọc** từ dữ liệu cộng đồng và thông báo công khai, không chứng nhận bao quát 100% những role vừa được cập nhật trong game sau ngày rà soát.
-- Các mô tả của **Scarecrow**, **Dracula**, **Exorcist** chủ động chưa đầy đủ; cần xem mô tả ngay trong client Wolvesville hoặc khi nhà phát triển công bố kỹ năng chính thức.
-- Với một số vai hiếm/chế độ lạ, mô tả tóm tắt chỉ mô tả **cơ chế cốt lõi**; không dùng file này để suy ra con số lượt, tỉ lệ hay các tương tác ưu tiên.
-- Wolvesville có các phiên bản, chế độ chơi và tương tác giữa role khác nhau; hệ thắng/phân loại có thể bị thay đổi do chuyển phe (ví dụ Cupid, Bandit, Lurker).
-
----
-
-*Tài liệu biên soạn có đối chiếu nguồn, không thuộc hay đạiển diện cho nhà phát triển Wolvesville.*
