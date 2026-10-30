@@ -1,5 +1,5 @@
 # Làng Sương Mù · Ma Sói
-
+https://vanesia377.github.io/wolve-game/
 Game Ma Sói bằng tiếng Việt: bạn và **7 người chơi máy**, với giao diện hỗ trợ điện thoại và máy tính. Không cần đăng nhập, API key, dịch vụ bên ngoài hay cài thư viện.
 
 ## Chơi
