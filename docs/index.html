@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101c19">
+  <meta name="description" content="Làng Sương Mù — game Ma Sói tiếng Việt. Một mình giữa ngôi làng đầy bí mật. Chơi miễn phí với 7 người chơi máy, không cần tài khoản.">
+  <title>Làng Sương Mù · Ma Sói</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body data-phase="night">
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="Làng Sương Mù — trang chủ"><span class="brand-mark" aria-hidden="true">☾</span><span>LÀNG SƯƠNG MÙ<small>MỘT TRÒ CHƠI MA SÓI</small></span></a>
+    <nav aria-label="Điều hướng"><span class="offline-label"><i></i> Không cần tài khoản</span><button class="text-button" id="help-button">Cách chơi <span aria-hidden="true">→</span></button><a class="github-link" href="https://github.com/vanesia377/wolve-game" target="_blank" rel="noopener noreferrer">GitHub →</a></nav>
+  </header>
+
+  <main>
+    <section id="welcome" class="welcome">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> ĐÊM ĐÃ XUỐNG. BẠN TIN AI?</p>
+        <h1>Một ngôi làng.<br>Hai con sói.<br><em>Vô vàn bí mật.</em></h1>
+        <p class="hero-description">Khi màn sương buông xuống, không phải ai cũng là người.<br class="desktop-break"> Lắng nghe, suy luận và sống sót qua đêm nay.</p>
+        <div class="hero-meta"><span>01 người chơi</span><span>07 người chơi máy</span><span>~ 10 phút / ván</span></div>
+        <form id="new-game-form" class="setup-panel">
+          <div class="field-row"><label>Tên của bạn<input id="player-name" name="name" maxlength="20" placeholder="Người lữ khách" autocomplete="nickname"></label><label>Vai trò khởi đầu<select id="role-choice" name="role"><option value="random">✦ Để số phận chọn</option><option value="seer">Tiên tri</option><option value="guard">Bảo vệ</option><option value="villager">Dân làng</option><option value="wolf">Ma Sói</option></select></label></div>
+          <button class="primary-button start-button" type="submit">Bước vào ngôi làng <span aria-hidden="true">→</span></button>
+          <button id="resume-button" class="secondary-button" type="button" hidden>Tiếp tục ván đang chơi →</button>
+          <p class="setup-note">Miễn phí. Không tải xuống. Ván chơi tự động được lưu.</p>
+        </form>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg class="forest-art" viewBox="0 0 600 740" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="moonGlow"><stop stop-color="#c9cba2" stop-opacity=".24"/><stop offset="1" stop-color="#c9cba2" stop-opacity="0"/></radialGradient>
+            <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#21372e"/><stop offset="1" stop-color="#14201c"/></linearGradient>
+            <linearGradient id="mist" x2="0" y2="1"><stop stop-color="#a4b7a3" stop-opacity="0"/><stop offset=".5" stop-color="#a4b7a3" stop-opacity=".14"/><stop offset="1" stop-color="#a4b7a3" stop-opacity="0"/></linearGradient>
+            <path id="pine" d="M0 0l-30 80h16l-28 65h22l-32 70h104l-32-70h22l-28-65h16z"/>
+          </defs>
+          <path d="M55 725V275a245 245 0 0 1 490 0v450z" fill="url(#sky)" stroke="#65735a" stroke-opacity=".3"/>
+          <circle cx="322" cy="225" r="190" fill="url(#moonGlow)"/>
+          <circle cx="322" cy="210" r="80" fill="#d8d7b4"/>
+          <circle cx="299" cy="182" r="12" fill="#c3c4a1" opacity=".45"/><circle cx="350" cy="233" r="20" fill="#c3c4a1" opacity=".35"/>
+          <g fill="#869784" opacity=".5"><circle cx="147" cy="250" r="2"/><circle cx="449" cy="179" r="2"/><circle cx="398" cy="91" r="1.5"/><circle cx="216" cy="132" r="1.5"/><circle cx="468" cy="315" r="1.5"/></g>
+          <path d="M56 447l128-119 87 75 131-105 143 147v280H56z" fill="#2c4034"/>
+          <g fill="#1d3027"><use href="#pine" transform="translate(125 275) scale(.9 1.5)"/><use href="#pine" transform="translate(477 240) scale(1.1 1.8)"/><use href="#pine" transform="translate(217 353) scale(.7 1.1)"/><use href="#pine" transform="translate(400 330) scale(.8 1.3)"/></g>
+          <path d="M56 565q120-50 250-6t239-8v174H56z" fill="#17271f"/>
+          <path d="M247 590v-79l54-43 54 43v79z" fill="#101c19"/><path d="M235 517l66-56 66 56" stroke="#819079" stroke-width="3"/><path d="M291 556v-27h21v27" fill="#dbab69" opacity=".8"/><path d="M323 486v-25h12v35" fill="#101c19"/>
+          <path d="M268 725q27-46 33-135h10q-2 92 29 135" fill="#8e9a77" opacity=".18"/>
+          <g fill="#101b17"><use href="#pine" transform="translate(72 300) scale(1.1 2)"/><use href="#pine" transform="translate(533 350) scale(1.3 2)"/></g>
+          <path d="M0 570h600v115H0z" fill="url(#mist)"/>
+          <path d="M401 661l-4-41 12-18 3-34 20 18 23-12-5 35 28 24 6 37h-16l-9-24-14-4-10 31h-15l5-35-13-5 3 28z" fill="#0c1613"/><path d="M423 602l8-2" stroke="#d7ab69" stroke-width="3"/>
+          <path d="M33 725h534" stroke="#65735a" stroke-opacity=".4"/>
+        </svg>
+        <div class="art-tag"><span class="tiny-star">✦</span> ĐỪNG TIN VÀO VẺ BỀ NGOÀI</div>
+        <span class="art-coordinate">LÀNG 08 / ĐÊM 01</span>
+      </div>
+      <div class="welcome-bottom"><p><span>✧</span> Một lá phiếu có thể cứu cả ngôi làng.</p><span>SUY LUẬN · ĐÁNH LỪA · SINH TỒN</span></div>
+    </section>
+
+    <section id="game" class="game" hidden aria-label="Ván Ma Sói">
+      <div class="game-heading"><div><p class="eyebrow" id="phase-eyebrow"></p><h1 id="phase-title" tabindex="-1"></h1></div><div class="game-tools"><span id="alive-count" class="alive-count"></span><button id="new-game-button" class="text-button">Ván mới →</button></div></div>
+      <div id="end-banner" class="end-banner" hidden></div>
+      <div class="game-layout">
+        <aside class="role-column"><section id="role-panel" class="panel role-panel"></section><section class="panel objective-panel"><p class="eyebrow">LUẬT CỦA NGÔI LÀNG</p><p>Phe Dân thắng khi loại hết Sói. Phe Sói thắng khi số Sói còn sống bằng hoặc nhiều hơn số Dân.</p><div class="deck-tags"><span>2 Ma Sói</span><span>1 Tiên tri</span><span>1 Bảo vệ</span><span>4 Dân làng</span></div><small>Đồng phiếu: không ai bị loại.<br>Vai trò được công khai khi một người chết.</small></section></aside>
+        <div class="village-column"><div class="section-label"><h2>Những người trong làng</h2><span id="village-hint"></span></div><div id="players" class="players"></div><section id="action-panel" class="panel action-panel" aria-labelledby="action-title"></section><section id="vote-panel" class="panel vote-panel" hidden></section></div>
+        <aside class="journal-column"><div class="section-label"><h2>Chuyện trong làng</h2><span class="live-dot"></span></div><div id="journal" class="journal" role="log" aria-label="Diễn biến ván chơi" aria-live="polite" aria-relevant="additions"></div><p class="journal-note">Lời nói có thể là giả. Lá phiếu thì không.<br>Người chơi máy dùng luật suy luận tự động.</p></aside>
+      </div>
+      <p id="status-message" class="status-message" role="status"></p>
+    </section>
+  </main>
+  <footer class="site-footer"><span>LÀNG SƯƠNG MÙ <span class="muted">/</span> MA SÓI</span><span>Giữ bình tĩnh. Giấu bí mật.</span></footer>
+
+  <dialog id="help-dialog"><button class="close-dialog" aria-label="Đóng hướng dẫn">×</button><p class="eyebrow">TRƯỚC KHI ĐÊM XUỐNG</p><h2>Cách chơi Ma Sói</h2><p>Bạn chơi cùng 7 người chơi máy. Có 2 Sói đang ẩn trong làng. Bạn có thể chọn vai hoặc nhận vai ngẫu nhiên.</p><ol><li><strong>Ban đêm:</strong> Sói chọn người tấn công; Tiên tri soi một người; Bảo vệ che chở một người. Dân làng ngủ.</li><li><strong>Ban ngày:</strong> đọc thông báo và lời nói. Chọn một người rồi nêu nghi vấn (tối đa một lần/ngày) để tác động đến phiếu của máy.</li><li><strong>Bỏ phiếu:</strong> chọn người và xác nhận. Người nhiều phiếu nhất bị loại và lộ vai; hòa phiếu thì không ai bị loại. Có thể bỏ qua lá phiếu.</li><li><strong>Chiến thắng:</strong> Dân loại hết Sói, hoặc Sói đạt số lượng ít nhất bằng Dân. Nếu chết, bạn vẫn có thể theo dõi ván đến cuối.</li></ol><p>Tiên tri máy sẽ công khai nếu tìm được Sói và còn sống vào sáng hôm sau. Sói có thể nhắm vào người đã công khai. Bảo vệ không được bảo vệ cùng người hai đêm liên tiếp.</p><p class="muted">Đây là bản chơi đơn, không có phòng nhiều người trực tuyến. Ván chơi lưu trên trình duyệt hiện tại; không gửi dữ liệu cá nhân lên máy chủ.</p><button class="primary-button close-help">Đã hiểu, vào làng →</button></dialog>
+  <dialog id="restart-dialog"><p class="eyebrow">MỘT CÂU CHUYỆN KHÁC</p><h2>Bắt đầu lại?</h2><p>Ván đang chơi sẽ được thay thế khi bạn bắt đầu ván mới.</p><div class="dialog-actions"><button id="cancel-restart" class="secondary-button">Chơi tiếp</button><button id="confirm-restart" class="primary-button">Chọn ván mới →</button></div></dialog>
+  <noscript><p class="noscript">Hãy bật JavaScript trong trình duyệt để chơi Ma Sói.</p></noscript>
+</body>
+</html>
