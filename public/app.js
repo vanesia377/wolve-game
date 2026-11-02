@@ -1,4 +1,4 @@
-import { ROLES, createGame, alive, human, nightTargets, resolveNight, accuse, resolveVote, nextNight, restoreGame } from './engine.js';
+import { ROLES, MIN_PLAYERS, MAX_PLAYERS, buildRoleDeck, isWolf, createGame, alive, human, nightTargets, resolveNight, accuse, resolveVote, revealMayor, nextNight, restoreGame } from './engine.js';
 
 const $ = id => document.getElementById(id);
 const STORAGE_KEY = 'lang-suong-mu-v1';
@@ -18,6 +18,7 @@ const symbols = {
 const icon = type => `<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" aria-hidden="true">${symbols[type] || symbols.home}</svg>`;
 
 function portrait(i) {
+  i %= 8;
   const colors = ['#bd9b70', '#a6ab82', '#b6957b', '#a5aaa1', '#baaa82', '#95ad9c', '#c2a094', '#a2aab7'];
   const hairs = [
     '<path d="M24 34Q17 8 40 7q25 0 17 27l-9-15-15 8z"/>',
@@ -52,30 +53,33 @@ function render() {
   document.body.dataset.phase = state.phase;
   $('phase-eyebrow').textContent = `${state.phase === 'night' ? '☾ ĐÊM' : '✧ NGÀY'} ${String(state.day).padStart(2, '0')} / LÀNG SƯƠNG MÙ`;
   $('phase-title').textContent = ({ night: 'Khi mọi cánh cửa khép lại.', day: 'Ai đang giấu một bí mật?', dusk: 'Một lá phiếu. Một số phận.', over: 'Màn sương đã tan.' })[state.phase];
-  $('alive-count').textContent = `${alive(state).length} / 8 người còn sống`;
+  $('alive-count').textContent = `${alive(state).length} / ${state.players.length} người còn sống`;
+  $('players').classList.toggle('large-village', state.players.length > 16);
+  $('game-deck').innerHTML = deckTags(state.players.map(p => p.initialRole));
   const role = ROLES[me.role];
-  const allies = state.players.filter(p => p.id !== me.id && p.role === 'wolf');
-  $('role-panel').innerHTML = `<p class="eyebrow">VAI TRÒ CỦA BẠN ${me.alive ? '' : '· ĐÃ MẤT'}</p><div class="role-emblem">${icon(role.icon)}</div><h2>${role.name}</h2><span class="role-side">${role.side} · ${escape(me.name)}</span><p>${role.description}</p>${me.role === 'wolf' ? `<p class="secret-note">Đồng đội: ${allies.map(p => `${escape(p.name)}${p.alive ? '' : ' (đã mất)'}`).join(', ')}.</p>` : ''}${!me.alive && !over ? '<p class="secret-note">Bạn đã mất. Tiếp tục theo dõi để biết phe nào chiến thắng.</p>' : ''}`;
+  const allies = state.players.filter(p => p.id !== me.id && isWolf(p));
+  $('role-panel').innerHTML = `<p class="eyebrow">VAI TRÒ CỦA BẠN ${me.alive ? '' : '· ĐÃ MẤT'}</p><div class="role-emblem">${icon(role.icon)}</div><h2>${role.name}</h2><span class="role-side">${role.side} · ${escape(me.name)}</span><p>${role.description}</p>${isWolf(me) ? `<p class="secret-note">Đồng đội: ${allies.map(p => `${escape(p.name)}${p.alive ? '' : ' (đã mất)'}`).join(', ')}.</p>` : ''}${!me.alive && !over ? '<p class="secret-note">Bạn đã mất. Tiếp tục theo dõi để biết phe nào chiến thắng.</p>' : ''}`;
   const targets = state.phase === 'night' ? nightTargets(state).map(p => p.id) : state.phase === 'day' && me.alive ? alive(state).filter(p => p.id !== me.id).map(p => p.id) : [];
   if (!targets.includes(state.selected)) state.selected = null;
-  $('village-hint').textContent = targets.length ? 'Chọn một người bên dưới' : over ? 'Tất cả vai trò đã lộ diện' : 'Quan sát ngôi làng';
+  const hint = targets.length ? 'Chọn một người bên dưới' : over ? 'Tất cả vai trò đã lộ diện' : 'Quan sát ngôi làng';
+  $('village-hint').textContent = state.players.length > 16 ? `${hint} · Cuộn để xem đủ ${state.players.length} người` : hint;
   $('players').innerHTML = state.players.map((p, i) => {
-    const revealed = over || !p.alive || p.id === me.id || (me.role === 'wolf' && p.role === 'wolf');
+    const revealed = over || !p.alive || p.id === me.id || (isWolf(me) && isWolf(p)) || p.mayorRevealed || (p.role === 'stubbornWolf' && p.resisted);
     let label = revealed ? ROLES[p.role].name : p.claimed ? 'Tự nhận Tiên tri' : 'Chưa rõ vai trò';
     let known = '';
     if (!revealed && p.id in me.known) {
       label = me.known[p.id] ? 'Đã soi: Ma Sói' : 'Đã soi: không phải Sói';
       known = me.known[p.id] ? 'known-wolf' : 'known-village';
     }
-    return `<button type="button" class="player-card ${p.alive ? '' : 'dead'} ${state.selected === p.id ? 'selected' : ''} ${known}" data-player="${p.id}" ${targets.includes(p.id) ? '' : 'disabled'} aria-pressed="${state.selected === p.id}" aria-label="${escape(p.name)}, ${p.alive ? label : `đã mất, ${label}`}">${i === 0 ? '<span class="self-tag">BẠN</span>' : ''}<div class="portrait" style="--portrait-color:${['#57614a', '#4a6557', '#715947', '#4e5b62', '#686344', '#4d675d', '#6e5351', '#4f5d70'][i]}">${portrait(i)}</div><span class="player-name">${escape(p.name)}</span><span class="player-label">${p.alive ? '' : '† '}${label}</span></button>`;
+    return `<button type="button" class="player-card ${p.alive ? '' : 'dead'} ${state.selected === p.id ? 'selected' : ''} ${known}" data-player="${p.id}" ${targets.includes(p.id) ? '' : 'disabled'} aria-pressed="${state.selected === p.id}" aria-label="${escape(p.name)}, ${p.alive ? label : `đã mất, ${label}`}">${i === 0 ? '<span class="self-tag">BẠN</span>' : ''}<div class="portrait" style="--portrait-color:${['#57614a', '#4a6557', '#715947', '#4e5b62', '#686344', '#4d675d', '#6e5351', '#4f5d70'][i % 8]}">${portrait(i)}</div><span class="player-name">${escape(p.name)}</span><span class="player-label">${p.alive ? '' : '† '}${label}</span></button>`;
   }).join('');
   renderAction();
   renderVotes();
   renderJournal();
   $('end-banner').hidden = !over;
   if (over) {
-    const won = (me.role === 'wolf') === (state.winner === 'wolves');
-    $('end-banner').innerHTML = `<div><h2>${won ? 'Phe của bạn đã chiến thắng!' : 'Phe của bạn đã thất bại.'}</h2><p>${state.winner === 'village' ? 'Ngôi làng đã tìm được tất cả Ma Sói.' : 'Đàn Sói đã chiếm lấy ngôi làng.'} Kết thúc sau ${state.day} đêm.</p></div><button class="primary-button" data-action="replay">Một ván nữa →</button>`;
+    const won = ROLES[me.role].team === (state.winner === 'village' ? 'village' : state.winner === 'wolves' ? 'wolves' : 'solo');
+    $('end-banner').innerHTML = `<div><h2>${won ? 'Phe của bạn đã chiến thắng!' : 'Phe của bạn đã thất bại.'}</h2><p>${state.winner === 'fool' ? 'Kẻ ngốc đã thắng riêng vì bị làng bỏ phiếu loại.' : state.winner === 'village' ? 'Ngôi làng đã tìm được tất cả Sói.' : 'Đàn Sói đã chiếm lấy ngôi làng.'} Kết thúc sau ${state.day} đêm.</p></div><button class="primary-button" data-action="replay">Một ván nữa →</button>`;
   }
   if (!storageAvailable) announce('Trình duyệt không cho lưu dữ liệu. Bạn vẫn chơi được, nhưng ván sẽ mất khi tải lại trang.');
 }
@@ -92,9 +96,10 @@ function renderAction() {
       detail = !me.alive ? 'Những người còn sống đang hành động. Tiếp tục để xem điều gì xảy ra.' : 'Ngôi làng chìm vào giấc ngủ. Sáng mai, hãy xem ai còn ngồi quanh bàn.';
       buttons = '<button class="primary-button" data-action="night">Chờ bình minh →</button>';
     } else {
-      title = ({ wolf: 'Đêm nay, đàn Sói săn ai?', seer: 'Bạn muốn soi ai đêm nay?', guard: 'Bạn muốn bảo vệ ai?' })[me.role];
-      detail = ({ wolf: 'Chọn một người phe Dân để tấn công. Bảo vệ có thể cứu họ.', seer: 'Kết quả chỉ mình bạn biết. Người đã soi sẽ được đánh dấu trên thẻ.', guard: 'Có thể bảo vệ chính mình. Người đã bảo vệ đêm trước không thể được chọn lại.' })[me.role];
-      buttons = `<button class="primary-button" data-action="night" ${disabled}>${({ wolf: 'Xác nhận tấn công', seer: 'Soi vai trò', guard: 'Xác nhận bảo vệ' })[me.role]} →</button>`;
+      const actionRole = isWolf(me) ? 'wolf' : me.role;
+      title = ({ wolf: 'Đêm nay, đàn Sói săn ai?', seer: 'Bạn muốn soi ai đêm nay?', guard: 'Bạn muốn bảo vệ ai?', doctor: 'Bạn muốn cứu ai đêm nay?' })[actionRole];
+      detail = ({ wolf: 'Chọn một người phe Dân để tấn công. Bảo vệ có thể cứu họ.', seer: 'Kết quả chỉ mình bạn biết. Người đã soi sẽ được đánh dấu trên thẻ.', guard: 'Có thể bảo vệ chính mình. Người đã bảo vệ đêm trước không thể được chọn lại.', doctor: 'Chọn một người khác để cứu. Không thể tự cứu; có thể cứu cùng người nhiều đêm.' })[actionRole];
+      buttons = `<button class="primary-button" data-action="night" ${disabled}>${({ wolf: 'Xác nhận tấn công', seer: 'Soi vai trò', guard: 'Xác nhận bảo vệ', doctor: 'Xác nhận cứu' })[actionRole]} →</button>`;
     }
   } else if (state.phase === 'day') {
     title = me.alive ? 'Lắng nghe. Suy luận. Bỏ phiếu.' : 'Cuộc tranh luận vẫn tiếp tục';
@@ -111,6 +116,9 @@ function renderAction() {
     detail = 'Vai trò của tất cả mọi người đã được công khai. Thử một vai trò khác để nhìn câu chuyện từ phía bên kia.';
     buttons = '<button class="primary-button" data-action="replay">Chơi ván mới →</button>';
   }
+  if (state.phase === 'day' && me.alive && me.role === 'mayor' && !me.mayorRevealed) {
+    buttons += '<button class="secondary-button" data-action="reveal-mayor">Công khai Thị trưởng · phiếu ×2</button>';
+  }
   $('action-panel').innerHTML = `<p class="eyebrow">${me.alive ? 'LƯỢT CỦA BẠN' : 'CHẾ ĐỘ THEO DÕI'}</p><h2 id="action-title">${title}</h2><p>${detail}</p>${state.phase === 'night' || state.phase === 'day' ? `<span class="selection-label">${selected ? `Đã chọn: ${escape(selected.name)}` : 'Chưa chọn người nào'}</span>` : ''}<div class="action-buttons">${buttons}</div>`;
 }
 
@@ -120,7 +128,7 @@ function renderVotes() {
   if (show) $('vote-panel').innerHTML = `<h3>Lá phiếu công khai · Ngày ${state.day}</h3><div class="vote-list">${state.votes.map(v => {
     const voter = state.players.find(p => p.id === v.voter);
     const target = state.players.find(p => p.id === v.target);
-    return `<span>${escape(voter.name)} <b>→ ${target ? escape(target.name) : 'Bỏ qua'}</b></span>`;
+    return `<span>${escape(voter.name)} <b>→ ${target ? escape(target.name) : 'Bỏ qua'}${v.weight === 2 ? ' (×2)' : ''}</b></span>`;
   }).join('')}</div>`;
 }
 
@@ -142,7 +150,7 @@ $('new-game-form').addEventListener('submit', event => {
   start();
 });
 function start() {
-  state = createGame($('player-name').value, $('role-choice').value);
+  state = createGame($('player-name').value, $('role-choice').value, Math.random, Number($('player-count').value));
   save();
   announce('');
   showGame();
@@ -168,12 +176,14 @@ $('game').addEventListener('click', event => {
     else if (action === 'vote') resolveVote(state, state.selected);
     else if (action === 'abstain') resolveVote(state);
     else if (action === 'next') nextNight(state);
+    else if (action === 'reveal-mayor') revealMayor(state);
     else return;
     save();
     announce('');
     render();
     if (action !== 'accuse') $('phase-title').focus({ preventScroll: true });
     else announce('Nghi vấn của bạn đã được chia sẻ với ngôi làng.');
+    if (action === 'reveal-mayor') announce('Bạn đã công khai là Thị trưởng. Lá phiếu từ nay có trọng số 2.');
   } catch (error) { announce(error.message); }
 });
 let pendingStart = false;
@@ -198,3 +208,27 @@ $('confirm-restart').addEventListener('click', () => {
 $('help-button').addEventListener('click', () => $('help-dialog').showModal());
 document.querySelectorAll('.close-dialog, .close-help').forEach(button => button.addEventListener('click', () => $('help-dialog').close()));
 for (const dialog of document.querySelectorAll('dialog')) dialog.addEventListener('click', event => { if (event.target === dialog) { const r = dialog.getBoundingClientRect(); if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) dialog.close(); } });
+
+function deckTags(deck) {
+  return [...new Set(deck)].map(role => `<span>${deck.filter(r => r === role).length} ${ROLES[role].name}</span>`).join('');
+}
+
+function updateSetup() {
+  const count = Number($('player-count').value);
+  const deck = buildRoleDeck(count);
+  const previous = $('role-choice').value;
+  $('role-choice').innerHTML = '<option value="random">✦ Để số phận chọn</option>' + [...new Set(deck)].map(role => `<option value="${role}">${ROLES[role].name}</option>`).join('');
+  $('role-choice').value = deck.includes(previous) ? previous : 'random';
+  $('bot-count').textContent = `${count - 1} người chơi máy`;
+  $('setup-deck').innerHTML = deckTags(deck);
+  updateRoleDescription();
+}
+function updateRoleDescription() {
+  const role = $('role-choice').value;
+  $('setup-role-description').textContent = role === 'random' ? 'Vai trò được chia ngẫu nhiên từ bộ vai trên. Thêm vai đặc biệt khi tăng số người.' : ROLES[role].description;
+}
+$('player-count').innerHTML = Array.from({ length: MAX_PLAYERS - MIN_PLAYERS + 1 }, (_, i) => `<option value="${i + MIN_PLAYERS}">${i + MIN_PLAYERS} người</option>`).join('');
+$('player-count').addEventListener('change', updateSetup);
+$('role-choice').addEventListener('change', updateRoleDescription);
+$('role-guide').innerHTML = Object.values(ROLES).map(role => `<div class="role-guide-entry"><dt>${role.name} <small>· ${role.side}</small></dt><dd>${role.description}</dd></div>`).join('');
+updateSetup();

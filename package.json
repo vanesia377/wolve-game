@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Game Ma Sói tiếng Việt, chơi đơn với 7 người chơi máy.",
+  "description": "Game Ma Sói tiếng Việt, chơi đơn với 7–29 người chơi máy, tối đa 30 người trong làng.",
   "scripts": {
     "start": "python3 -m http.server 4173 --bind 0.0.0.0 --directory public",
     "build": "node scripts/build.mjs",
