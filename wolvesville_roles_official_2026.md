@@ -171,10 +171,3 @@ Từ **150 mục** trên danh mục Wiki cũ: bỏ **13 vai chỉ có trong Clas
 |---|---|
 | **Admirer** | Cần mục tiêu được chỉ định còn sống khi ván kết thúc; có khả năng bảo vệ mục tiêu một lần và cùng hưởng chiến thắng. |
 | **Lurker** | Bắt đầu chưa gia nhập phe thắng cố định; khi bị một tác nhân thích hợp tấn công có thể nhập vào phe đã tấn công, không cần xác định trước. |
-
-### Sự kiện 2026 — phe chưa xác minh — 2 vai
-
-| Role (tên gốc) | Kỹ năng/cơ chế chính |
-|---|---|
-| **Dracula** | Role Halloween mới đã được nhà phát triển xác nhận ngày 13/10/2026. Chưa truy xuất được mô tả kỹ năng đáng tin cậy; không suy diễn thêm. |
-| **Exorcist** | Role Halloween mới đã được nhà phát triển xác nhận ngày 13/10/2026. Chưa truy xuất được mô tả kỹ năng đáng tin cậy; không suy diễn thêm. |
