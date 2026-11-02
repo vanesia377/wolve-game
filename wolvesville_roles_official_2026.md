@@ -26,15 +26,15 @@ Từ **150 mục** trên danh mục Wiki cũ: bỏ **13 vai chỉ có trong Clas
 | Role (tên gốc) | Kỹ năng/cơ chế chính |
 |---|---|
 | **Analyst** | Mỗi đêm xem hào quang của hai người. Nếu hai người có cùng hào quang, phải bỏ lượt soi đêm kế tiếp. |
-| **Astronomer** | Có thể tạo trăng mới để chặn đòn giết đêm sau của sói; dùng thiên thạch giết mục tiêu nhưng sẽ chết nếu mục tiêu chết cùng lúc. |
+| **Astronomer** | Có thể tạo trăng mới để chặn đòn giết đêm sau của sói; dùng thiên thạch giết mục tiêu nhưng sẽ chết nếu mục tiêu chết là phe dân. |
 | **Aura Seer** | Soi hào quang một người mỗi đêm (tốt / xấu / không xác định), không biết chính xác tên role. |
 | **Avenger** | Đánh dấu một người; khi bản thân chết, mục tiêu đã chọn có thể bị kéo chết theo. |
-| **Baker** | Phát bánh cho một người vào ban đêm, giúp lá phiếu của họ có trọng số cao hơn ở lượt bỏ phiếu tiếp theo. |
-| **Beast Hunter** | Đặt bẫy bảo vệ một người; nếu sói tấn công mục tiêu đã đặt bẫy, bẫy có thể giết sói. |
+| **Baker** | Phát bánh cho một người vào ban đêm, giúp lá phiếu của họ có trọng số cao hơn 1 ở lượt bỏ phiếu tiếp theo. |
+| **Beast Hunter** | Đặt bẫy bảo vệ một người; nếu sói/solo tấn công mục tiêu đã đặt bẫy, bẫy có thể giết sói. |
 | **Bell-Ringer** | Liên kết hai người đã chọn; khi một người chết, người còn lại được tiết lộ vai trò cho Bell-Ringer. |
-| **Bodyguard** | Bảo vệ người khác ban đêm, có thể chịu sát thương hoặc đánh đổi mạng sống để cứu mục tiêu. |
-| **Bully** | Ném đá khiến mục tiêu bị choáng, hạn chế nói chuyện, bỏ phiếu và dùng kỹ năng; trúng tiếp có thể chết. |
-| **Butcher** | Sử dụng các phần thịt bảo vệ người chơi khỏi đòn tấn công ban đêm; có thể phân bổ bảo vệ nhiều mục tiêu. |
+| **Bodyguard** | Bảo vệ một người khác (bao gồm bản thân) vào ban đêm khỏi bị giết; không thể bảo vệ 1 người 2 đêm liên tiếp. |
+| **Bully** | Ném đá khiến mục tiêu bị choáng, hạn chế nói chuyện, bỏ phiếu và dùng kỹ năng; trúng tiếp lần 2 có thể chết. Mỗi ngày chỉ được ném 1 viên đá, chỉ được giết tối đa 2 người|
+| **Butcher** | Sử dụng các phần thịt bảo vệ người chơi khỏi đòn tấn công ban đêm; có thể phân bổ bảo vệ nhiều mục tiêu. Được cho 5 miếng thịt|
 | **Conjuror** | Chọn vai trò của một dân làng đã chết để tạm biến thành role đó trong một ngày; có thể nói chuyện với người chết khi ở dạng tạm thời. |
 | **Cowardly Lion** | Tích lũy lòng can đảm khi không bỏ phiếu; sau khi chết có thể dùng sức mạnh tích lũy để tác động một lần lên một cá nhân. |
 | **Cupid** | Ghép hai người thành cặp tình nhân; khi một người chết người kia thường chết theo, điều kiện thắng có thể đổi theo cặp. |
@@ -44,28 +44,27 @@ Từ **150 mục** trên danh mục Wiki cũ: bỏ **13 vai chỉ có trong Clas
 | **Dorothy** | Đến thăm người chơi để thu thập trí óc, trái tim và lòng can đảm; đủ bộ có thể dùng nước khắc chế phe ác. |
 | **Easter Bunny** | Phân phối những quả trứng có hiệu ứng khác nhau như bảo vệ, câm lặng, khóa kỹ năng hoặc soi hào quang. |
 | **Ferryman** | Chọn người để chèo đò: nếu bị giết đêm đó, họ được hoạt động thêm một ngày rồi mới chết; cứu trì hoãn tối đa hạn chế thời gian chết. |
-| **Flagger** | Chuyển hướng đòn tấn công nhắm vào người được bảo vệ sang một người khác; có số lượt thành công giới hạn. |
+| **Flagger** | Chuyển hướng đòn tấn công nhắm vào người được bảo vệ sang một người khác; có số lượt thành công giới hạn là 2. |
 | **Flower Child** | Dùng năng lực hạn chế để cứu một người khỏi kết quả treo cổ ban ngày. |
 | **Forger** | Rèn đồ cho đồng đội, gồm vật phẩm bảo vệ và vũ khí tấn công, rồi trao cho người chơi khác. |
 | **Fortune Teller** | Phát thẻ tiết lộ role để người nhận tự công bố; người phe xấu có thể lợi dụng thẻ để đánh lừa. |
-| **Gambler** | Đặt cược một mục tiêu thuộc phe nào; nếu đoán đúng sẽ thu được thông tin, số lần cược có giới hạn. |
-| **Ghost Lady** | Ghé thăm và bảo vệ một mục tiêu ban đêm; khi cứu thành công sẽ hình thành liên kết sinh tử với người đó. |
-| **Grave Robber** | Chọn một người để kế thừa role khi người đó chết, có thể vì vậy đổi luôn phe thắng. |
+| **Gambler** | Đặt cược một mục tiêu thuộc phe nào; nếu đoán đúng sẽ thu được thông tin, số lần cược là 4. |
+| **Ghost Lady** | Ghé thăm và bảo vệ một mục tiêu ban đêm; khi cứu thành công sẽ hình thành liên kết sinh tử với người đó. Sau khi có liên kết, nếu 1 trong 2 chết thì người còn lại chết theo |
+| **Grave Robber** | Đêm đầu chọn một người để kế thừa role khi người đó chết, có thể vì vậy đổi luôn phe thắng. |
 | **Grumpy Grandma** | Chỉ định một người bị câm lặng và không thể biểu quyết trong ngày tiếp theo. |
-| **Gunner** | Sử dụng súng có lượng đạn hữu hạn để bắn một người vào ban ngày. |
+| **Gunner** | Sử dụng súng có lượng đạn hữu hạn để bắn một người vào ban ngày. Không được sử dụng chức năng vào ngày đầu tiên |
 | **Jailer** | Giam một người ban đêm để thẩm vấn, chặn kỹ năng và bảo vệ khỏi nhiều loại tấn công; có thể xử tử có giới hạn. |
 | **Journalist** | Điều tra thi thể bị phe xấu giết, xác định hàng hoặc cột trên bàn cờ có kẻ giết; từng được dùng trong tournament hoặc chế độ Moonlight. |
-| **Judge** | Khi bỏ phiếu không ai bị treo, có thể can thiệp để xử tử người đã đánh dấu; chọn nhầm dân làng có thể khiến Judge chết. |
+| **Judge** | Khi bỏ phiếu không ai bị treo, có thể can thiệp để xử tử người đã đánh dấu (tối đa 2, mỗi ngày chỉ được 1 mục tiêu); chọn nhầm dân làng có thể khiến Judge chết. |
 | **Loudmouth** | Chỉ định một người; khi Loudmouth chết, role của người được đánh dấu sẽ bị công khai. |
-| **Marksman** | Đánh dấu mục tiêu và dùng một đòn bắn hạn chế; bắn nhầm dân làng có hậu quả bất lợi. |
+| **Marksman** | Đánh dấu mục tiêu và dùng một đòn bắn hạn chế; bắn nhầm dân làng sẽ khiến bản thân chết thay vì mục tiêu. |
 | **Mayor** | Tự công khai danh tính để lá phiếu của mình có trọng số gấp đôi trong phần còn lại của trận. |
 | **Medium** | Nói chuyện với người chết ban đêm và có cơ hội hồi sinh một người đã chết. |
 | **Mortician** | Khám nghiệm người chết để nhận nhóm nghi phạm có liên quan đến vụ giết của phe xấu. |
-| **Night Watchman** | Bảo vệ người chơi ban đêm tối đa ba lần cả trận; đồng thời nhìn thấy những người đang được các role khác bảo vệ. |
+| **Night Watchman** | Bảo vệ người chơi ban đêm tối đa ba lần cả trận; đồng thời nhìn thấy những người đang được các role khác bảo vệ tối đa 2 lần. |
 | **Nutcracker** | Công khai vai để kích hoạt phiên bỏ phiếu đặc biệt, có thể khiến hai người nhiều phiếu nhất cùng bị treo. |
 | **Pacifist** | Dừng cuộc biểu quyết một lần và biết vai trò thật của mục tiêu mình chọn. |
 | **Preacher** | Đoán ai sẽ chết ban đêm; khi đoán đúng tích lũy quyền tăng phiếu vĩnh viễn sau khi công khai vai. |
-| **President** | Role Custom Games: mọi người biết ngay từ đầu ai là Tổng thống; Tổng thống chết thì phe làng lập tức thua. |
 | **Priest** | Dùng nước thánh để giết sói; nếu dùng nhầm vào dân làng, Priest có thể phải chết thay. |
 | **Pumpkin Dealer** | Đề nghị người chơi nhận thỏa thuận bí ngô với kết quả ngẫu nhiên: có thể chết, được bảo vệ, có đạn, bị khóa kỹ năng hoặc trở thành mục tiêu. |
 | **Pumpkin King** | Role mùa Halloween mang tính sự kiện/xã hội: phát quà cho người chết; không có kỹ năng thay đổi chiến thuật cốt lõi. |
@@ -75,8 +74,7 @@ Từ **150 mục** trên danh mục Wiki cũ: bỏ **13 vai chỉ có trong Clas
 | **Resolutionist** | Vai sự kiện tăng sức nặng lá phiếu khi duy trì cam kết luôn bỏ phiếu; bỏ lỡ một lượt bỏ phiếu sẽ mất vĩnh viễn quyền này. |
 | **Ritualist** | Liên lạc với người chết và đặt bùa hồi sinh lên người sống; nếu mục tiêu chết đúng điều kiện có thể sống lại. |
 | **Santa Claus** | Role mùa Giáng sinh, tặng quà mang tính trang trí/giao tiếp cho người đã chết; không đóng vai trò sát thương chiến thuật. |
-| **Scarecrow** | Vai trò làng cơ bản mới được xác nhận phát hành chính thức tháng 8/2026; chưa xác minh được mô tả kỹ năng chi tiết từ nguồn đáng tin. |
-| **Seer** | Kiểm tra một người mỗi đêm để biết chính xác role của họ. |
+| **Seer** | Kiểm tra một người mỗi đêm để biết phe của họ là gì. |
 | **Seer Apprentice** | Khi Seer chết, có thể thức tỉnh để trở thành Seer và kế thừa khả năng soi. |
 | **Sheriff** | Theo dõi hai người mỗi đêm; nếu một người bị tấn công, nhận danh sách nghi phạm liên quan. |
 | **Snow Angel** | Bảo vệ một người khỏi một đòn tấn công trong hai đêm; chọn tối đa ba người khác nhau cả trận, hiệu ứng vẫn còn khi Snow Angel chết. |
@@ -86,17 +84,17 @@ Từ **150 mục** trên danh mục Wiki cũ: bỏ **13 vai chỉ có trong Clas
 | **Time Traveler** | Role đặc biệt có thể đưa diễn biến quay lại một ngày trước, khôi phục các sự kiện nhất định; không khôi phục tất cả trạng thái. |
 | **Tough Guy** | Đỡ được đòn giết một lần, thường được báo mình đã bị tấn công và sẽ chết chậm hơn nếu bị thương. |
 | **Trapper** | Đặt bẫy cho tối đa ba người rồi kích hoạt; bẫy chống tấn công ban đêm và có thể giết sói tấn công. |
-| **Vigilante** | Công khai vai trò và có thể dùng quyền giết vào ban ngày với số lượt giới hạn. |
+| **Vigilante** | Công khai vai trò và có thể dùng quyền giết vào ban ngày với số lượt giới hạn. 1 lần lộ vai trò người khác và 1 lần giết người khác|
 | **Villager** | Dân làng thường, không có kỹ năng chủ động đặc biệt; dựa vào thảo luận và bỏ phiếu để thắng cùng làng. |
 | **Violinist** | Kiểm tra người chơi có đang thương tiếc người vừa chết hay không, từ đó suy ra liên hệ phe giữa họ. |
-| **Warden** | Giam hai người trong một phòng; họ có thể trò chuyện, một người dân làng có thể dùng vũ khí xử người kia, hai sói có thể cùng chiến đấu hoặc bị khác phe. |
-| **Witch** | Có lọ thuốc cứu và thuốc độc để lần lượt cứu hoặc hạ một người, mỗi loại có lượng sử dụng giới hạn. |
+| **Warden** | Giam hai người trong một phòng; họ có thể trò chuyện, một người dân làng có thể dùng vũ khí xử người kia, hai sói có thể cùng vượt ngục và giết Warden. |
+| **Witch** | Có lọ thuốc cứu và thuốc độc để lần lượt cứu hoặc hạ một người, mỗi loại sử dụng 1 lần. |
 
 ### Sói (Werewolves) — 35 vai
 
 | Role (tên gốc) | Kỹ năng/cơ chế chính |
 |---|---|
-| **Alpha Werewolf** | Sói đầu đàn có sức mạnh cao hơn sói thường trong thứ tự xử lý một số tương tác; cùng đàn bỏ phiếu giết ban đêm. |
+| **Alpha Werewolf** | Sói đầu đàn có sức mạnh cao hơn sói thường trong thứ tự xử lý một số tương tác. Nếu còn sống, mỗi đêm sói được cắn 2 người cạnh nhau thay vì 1 |
 | **Blind Werewolf** | Có kỹ năng điều tra hạn chế thông tin về vai trò/người chơi khác thay vì biết sẵn toàn bộ thông tin như một số sói điển hình. |
 | **Candy Wolf** | Phát kẹo độc cho người chơi; mục tiêu có thể chết vào đêm kế nếu không được bảo vệ. |
 | **Confusion Wolf** | Tối đa hai lần, giấu role của tất cả người bị giết trong đêm đó; chỉ phe sói xem được các role thật. |
@@ -163,9 +161,9 @@ Từ **150 mục** trên danh mục Wiki cũ: bỏ **13 vai chỉ có trong Clas
 
 | Role (tên gốc) | Kỹ năng/cơ chế chính |
 |---|---|
-| **Anarchist** | Đạt thắng lợi riêng nếu làng liên tục không treo ai theo điều kiện đặc biệt của role. |
+| **Anarchist** | Đạt thắng lợi riêng nếu làng liên tục không treo ai trong 3 hôm liên tiếp. Có khả năng không cho biểu quyết treo cổ ai 1 ngày (chỉ 1 lần duy nhất) |
 | **Fool** | Tìm cách khiến chính mình bị làng bỏ phiếu treo cổ để giành chiến thắng. |
-| **Headhunter** | Có người chơi mục tiêu, phải khiến người đó bị treo cổ qua biểu quyết để thắng. |
+| **Headhunter** | Có người chơi mục tiêu, phải khiến người đó bị treo cổ qua biểu quyết để thắng. Nếu mục tiêu chết bằng cách khác, điều kiện thắng là phe dân thua|
 
 ### Không phe cố định (Teamless) — 2 vai
 
